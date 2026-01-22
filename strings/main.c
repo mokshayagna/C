@@ -7,7 +7,11 @@ int main()
     //test_astrcat();
     //test_astrncat();
     //test_astrcpy();
-    test_astrncpy();
+    //test_astrncpy();
     //test_astrncmp();
+    //test_astrcasecmp();
+    //test_astrncasecmp();
+    //test_astrchr();
+    test_astrrchr();
     return 0;
 }

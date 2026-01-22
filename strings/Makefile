@@ -26,6 +26,31 @@ copy:
 ncpy:
 	gcc astr_ncpy.c astr_ncpy_test.c main.c -o ncpy
 
+# ================= case insensitive compare =================
+casecmp:
+	gcc astr_casecmp.c astr_casecmp_test.c main.c -o casecmp
+
+# ================= n case insensitive compare =================
+ncasecmp:	
+	gcc astr_ncasecmp.c astr_ncasecmp_test.c main.c -o ncasecmp
+
+# ================= character search =================
+chr:
+	gcc astr_chr.c astr_chr_test.c main.c -o chr
+
+# ================= n character search =================
+rchr:
+	gcc astr_chr.c astr_rchr.c astr_rchr_test.c main.c -o rchr
 # ================= clean =================
 clean:
-	rm -f *_s *_c 
+	rm -f casecmp *.o
+	rm -f ncasecmp *.o
+	rm -f len *.o
+	rm -f cmp *.o
+	rm -f ncmp *.o
+	rm -f cat *.o
+	rm -f ncat *.o
+	rm -f cpy *.o
+	rm -f ncpy *.o
+	rm -f chr *.o
+	rm -f rchr *.o

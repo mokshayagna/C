@@ -5,3 +5,7 @@ void test_astrncat(void);
 void test_astrcpy(void);
 void test_astrncpy(void);
 void test_astrncmp(void);
+void test_astrcasecmp(void);
+void test_astrncasecmp(void);
+void test_astrchr(void);
+void test_astrrchr(void);
