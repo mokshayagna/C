@@ -12,6 +12,8 @@ int main()
     //test_astrcasecmp();
     //test_astrncasecmp();
     //test_astrchr();
-    test_astrrchr();
+    //test_astrrchr();
+    //test_astr_dup();
+    test_astr_str();
     return 0;
 }

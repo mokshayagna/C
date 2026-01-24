@@ -9,3 +9,5 @@ void test_astrcasecmp(void);
 void test_astrncasecmp(void);
 void test_astrchr(void);
 void test_astrrchr(void);
+void test_astr_dup(void);
+void test_astr_str(void);

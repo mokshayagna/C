@@ -41,6 +41,13 @@ chr:
 # ================= n character search =================
 rchr:
 	gcc astr_chr.c astr_rchr.c astr_rchr_test.c main.c -o rchr
+# ================= duplicate string =================
+dup:
+	gcc astr_dup.c astr_dup_test.c main.c -o dup	
+
+# ================= string search =================
+strstr:
+	gcc astr_str.c astr_str_test.c main.c -o str
 # ================= clean =================
 clean:
 	rm -f casecmp *.o
@@ -54,3 +61,5 @@ clean:
 	rm -f ncpy *.o
 	rm -f chr *.o
 	rm -f rchr *.o
+	rm -f dup *.o
+	rm -f strstr *.o

@@ -9,4 +9,5 @@ int astrcasecmp(const char *str1, const char *str2);
 int astrncasecmp(const char *str1, const char *str2, int n);
 char* astrchr(const char *s, int c);
 char* astrrchr(const char *s, char c);
-
+char *astr_dup(const char *s);
+char *astr_str(const char *str1, const char *str2);
