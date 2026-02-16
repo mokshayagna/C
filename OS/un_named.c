@@ -1,24 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 
 int main(){
+    int fd[2];
     char buffer[20];
-    mkfifo("mypipe",0666);
-    int tpid = fork();
-    if(tpid > 0){
-        int fd = open("mypipe",O_WRONLY);
-        write(fd,"HELLO WORLD",11);
-        close(fd);
+    int tpid;
+    pipe(fd);            // creating a unnamed pipe
+    tpid = fork();
+    if(tpid > 0){            //checking if it is parent
+        write(fd[1],"Hello world",11);  // parent sending hello world
+        close(fd[1]);                // closing write part
     }
     else{
-        int fd = open("mypipe",O_RDONLY);
-        int n = read(fd,buffer,sizeof(buffer));
-        buffer[n] = '\0';
-        printf("child received:%s\n",buffer);
-        close(fd);
+        int n = read(fd[0],buffer,sizeof(buffer)-1);        // child reading from fd[0] 
+        buffer[n] = '\0';                        //reading until end
+        printf("child recived:%s\n",buffer);
+        close(fd[0]);                             //closing read part
     }
     return 0;
 }
