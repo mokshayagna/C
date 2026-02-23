@@ -10,12 +10,13 @@ int main(){
     int tpid = fork();
     if(tpid > 0){
         int fd = open("mypipe",O_WRONLY);
-        write(fd,"HELLO WORLD",11);
+        printf("fd:%d\n",fd); 
+        write(fd,"HELLO WORLD",11); // parent sending hello world
         close(fd);
     }
     else{
-        int fd = open("mypipe",O_RDONLY);
-        int n = read(fd,buffer,sizeof(buffer));
+        int fd = open("mypipe",O_RDONLY); // child reading from mypipe
+        int n = read(fd,buffer,sizeof(buffer)); // child reading from fd
         buffer[n] = '\0';
         printf("child received:%s\n",buffer);
         close(fd);
