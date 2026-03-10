@@ -14,8 +14,12 @@ int main(){
     int msgid = msgget(key, IPC_CREAT | 0666);
     struct msg_queue msg;
     msg.flag = 1;
-    strcpy(msg.msg, "Hello from parent process!");
+    strcpy(msg.msg, "Hello from server");
     msgsnd(msgid, &msg, sizeof(msg.msg), 0);
+    printf("Sent: %s\n", msg.msg);
+    msg.flag = 2;
+    strcpy(msg.msg, "second message");
+    msgsnd(msgid, &msg, sizeof(msg.msg), 1);
     printf("Sent: %s\n", msg.msg);
     return 0;
 }
