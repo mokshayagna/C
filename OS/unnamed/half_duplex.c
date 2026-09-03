@@ -26,7 +26,7 @@ int main(){
         printf("child received:%s\n",buffer);
         close(fd[0]);
 
-        write(fd[1],"World",strlen("World"));
+        write(fd[1],"World",strlen("World"));  // as it is half duplex even thought we write we can not print
         close(fd[1]);
     }   
     return 0;

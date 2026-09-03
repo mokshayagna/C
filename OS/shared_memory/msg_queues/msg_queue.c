@@ -26,15 +26,19 @@ int main(){
 
     if(tpid > 0){   // Parent
         msg.flag = 1;
-        strcpy(msg.msg, "Hello from parent process!");
+        strcpy(msg.msg, "Hello ");
+        msgsnd(msgid, &msg, sizeof(msg.msg), 0);
+        printf("Parent sent: %s\n", msg.msg);
 
+        msg.flag = 4;
+        strcpy(msg.msg,"from parent process!");
         msgsnd(msgid, &msg, sizeof(msg.msg), 0);
         printf("Parent sent: %s\n", msg.msg);
        // msgctl(msgid, IPC_RMID, NULL);
 
     }
     else{           // Child
-        msgrcv(msgid, &msg, sizeof(msg.msg), 1, 0);
+        msgrcv(msgid, &msg, sizeof(msg.msg), 4, 0);
         printf("Child received: %s\n", msg.msg);
     }
 

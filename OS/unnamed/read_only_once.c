@@ -28,7 +28,7 @@ int main(){
     tpid = fork();
     if(tpid == 0){ // new child, unrelated to the first child
         int x = read(fd[0],buffer,sizeof(buffer));
-        printf("x:%d\n",x);
+        printf("x:%d\n",x); // -1 because buffer is empty
         if(x<0){
             printf("read failed in unrelated child\n");
         }

@@ -12,6 +12,7 @@ int main()
 
     // create shared memory segment
     shmid = shmget(IPC_PRIVATE, 1024, IPC_CREAT | 0666);
+    
     printf("Shared memory segment created with ID: %d\n", shmid);
     // attach to the shared memory segment
     ptr = (char *)shmat(shmid, NULL, 0);

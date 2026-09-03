@@ -15,7 +15,7 @@ void nodes() {
     printf("child:%d\n", a);
 
     tpid = fork();
-
+    printf("ID:%d\n",tpid);
     if (tpid == 0) {
         child();
     } else {
@@ -26,7 +26,7 @@ void nodes() {
 void child() {
     for (;;) {   
         printf("child:%d\n", a);
-        i++;
+        a++;
         sleep(1);
     }
 }
