@@ -1,7 +1,13 @@
 #include <stdio.h>
 
-int arr[] = {10, 20, 30};
-int *p = arr;
+int main()
+{
+    char str[] = "Hello";
+    char *p = str;
 
-printf("%d\n", *p++);
-printf("%d\n", *p);
+    *p = 'Y';
+
+    printf("%s\n", str);
+
+    return 0;
+}
